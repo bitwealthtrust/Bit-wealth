@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bit-Wealth Sign Up Test</title>
+  <title>Bit-Wealth Signup Test</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -20,15 +20,9 @@
       background: white;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
     }
 
-    h1 {
-      color: #123c72;
-    }
-
-    input,
-    button {
+    input, button {
       width: 100%;
       padding: 14px;
       margin-top: 12px;
@@ -46,7 +40,7 @@
     #result {
       margin-top: 20px;
       padding: 15px;
-      background: #f0f4f8;
+      background: #eef3f8;
       white-space: pre-wrap;
       word-break: break-word;
     }
@@ -61,70 +55,65 @@
 
   <p>Create a test account.</p>
 
-  <form id="signupForm">
+  <form id="form">
 
     <input
-      type="email"
       id="email"
+      type="email"
       placeholder="Email address"
       required
     >
 
     <input
-      type="password"
       id="password"
-      placeholder="Password — minimum 8 characters"
+      type="password"
+      placeholder="Password"
       minlength="8"
       required
     >
 
-    <button type="submit" id="button">
-      Create Test Account
+    <button id="button" type="submit">
+      Test Signup
     </button>
 
   </form>
 
-  <div id="result">JAVASCRIPT TEST</div>
-
-<script>
-  document.getElementById("result").textContent =
-    "JavaScript is working!";
-</script>
+  <div id="result">Checking Supabase...</div>
 
 </div>
 
 <script>
 
+const result = document.getElementById("result");
+
 https://weovrftlcdcgpolmwlgl.supabase.co/rest/v1/
 
 sb_publishable_Z7VJQvGcckiFNuWB1662qQ_CYiGJkwG
 
-const result = document.getElementById("result");
-const button = document.getElementById("button");
 
-try {
+if (typeof window.supabase === "undefined") {
 
-  const supabaseClient = supabase.createClient(
+  result.textContent =
+    "ERROR: Supabase library did not load.";
+
+} else {
+
+  result.textContent =
+    "SUCCESS: Supabase library loaded.";
+
+  const client = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
   );
 
-  if (typeof supabase === "undefined") {
-  result.textContent =
-    "ERROR: Supabase library did not load.";
-} else {
-  result.textContent =
-    "SUCCESS: Supabase library loaded.";
-  }
-
-  document
-    .getElementById("signupForm")
-    .addEventListener("submit", async function(event) {
+  document.getElementById("form").addEventListener(
+    "submit",
+    async function(event) {
 
       event.preventDefault();
 
-      button.disabled = true;
-      button.textContent = "Testing...";
+      result.textContent =
+        "Testing connection to Supabase...";
 
       const email =
         document.getElementById("email").value.trim();
@@ -132,58 +121,37 @@ try {
       const password =
         document.getElementById("password").value;
 
-      result.textContent =
-        "Sending signup request to Supabase...";
-
       try {
 
-        const { data, error } =
-          await supabaseClient.auth.signUp({
+        const response =
+          await client.auth.signUp({
             email: email,
             password: password
           });
 
-        if (error) {
+        if (response.error) {
 
           result.textContent =
             "SUPABASE ERROR:\n\n" +
-            error.message;
-
-          console.error(error);
+            response.error.message;
 
           return;
         }
 
         result.textContent =
           "SUCCESS!\n\n" +
-          "User ID: " +
-          (data.user ? data.user.id : "No user returned") +
-          "\n\n" +
-          "Confirmation required: " +
-          (!data.session);
+          "Supabase accepted the signup request.";
 
       } catch (error) {
 
         result.textContent =
-          "JAVASCRIPT ERROR:\n\n" +
+          "CONNECTION ERROR:\n\n" +
           error.message;
-
-        console.error(error);
-
-      } finally {
-
-        button.disabled = false;
-        button.textContent = "Create Test Account";
 
       }
 
-    });
-
-} catch (error) {
-
-  result.textContent =
-    "CLIENT ERROR:\n\n" +
-    error.message;
+    }
+  );
 
 }
 
