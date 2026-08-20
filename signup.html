@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bit-Wealth Signup Test</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/dist/umd/supabase.min.js"></script>
+  <script>
+  window.supabaseTest = "loaded";
+  </script>
 
   <style>
     body {
@@ -91,7 +93,11 @@ https://weovrftlcdcgpolmwlgl.supabase.co/rest/v1/
 sb_publishable_Z7VJQvGcckiFNuWB1662qQ_CYiGJkwG
 
 
-if (typeof window.supabase === "undefined") {
+if (window.supabaseTest === "loaded") {
+  result.textContent = "Basic JavaScript is working.";
+} else {
+  result.textContent = "JavaScript test failed.";
+}
 
   result.textContent =
     "ERROR: Supabase library did not load.";
