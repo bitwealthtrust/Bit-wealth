@@ -109,8 +109,13 @@ try {
     SUPABASE_PUBLISHABLE_KEY
   );
 
+  if (typeof supabase === "undefined") {
   result.textContent =
-    "Supabase client loaded successfully.";
+    "ERROR: Supabase library did not load.";
+} else {
+  result.textContent =
+    "SUCCESS: Supabase library loaded.";
+  }
 
   document
     .getElementById("signupForm")
