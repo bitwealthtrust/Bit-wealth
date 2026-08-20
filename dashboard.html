@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | Bit-Wealth</title>
+
+  <meta name="description" content="Your Bit-Wealth member dashboard.">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f8fc;
+      color: #172033;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e3e9f0;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #123c72;
+      font-size: 24px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .logout {
+      border: none;
+      background: #123c72;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .logout:hover {
+      background: #1769aa;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1100px;
+      margin: 45px auto;
+    }
+
+    .welcome {
+      margin-bottom: 30px;
+    }
+
+    .welcome h1 {
+      color: #123c72;
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #68778b;
+    }
+
+    .email {
+      font-weight: bold;
+      color: #1769aa;
+    }
+
+    .notice {
+      background: #fff;
+      border: 1px solid #dfe7ef;
+      border-left: 5px solid #1769aa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .notice h3 {
+      color: #123c72;
+      margin-bottom: 7px;
+    }
+
+    .notice p {
+      color: #657386;
+      font-size: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 18px rgba(15,45,80,0.05);
+    }
+
+    .card h3 {
+      color: #123c72;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #657386;
+      font-size: 14px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 18px;
+      color: #1769aa;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #7b8796;
+      font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      header {
+        padding: 16px 5%;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      main {
+        width: 90%;
+        margin: 30px auto;
+      }
+
+      .welcome h1 {
+        font-size: 28px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <a href="index.html" class="logo">
+      Bit-Wealth
+    </a>
+
+    <button class="logout" id="logoutButton">
+      Log Out
+    </button>
+
+  </header>
+
+
+  <main>
+
+    <div class="welcome">
+
+      <h1>Welcome to Bit-Wealth</h1>
+
+      <p>
+        Signed in as:
+        <span class="email" id="userEmail">Loading...</span>
+      </p>
+
+    </div>
+
+
+    <div class="notice">
+
+      <h3>Member Dashboard</h3>
+
+      <p>
+        Your account is active. This dashboard currently provides
+        access to Bit-Wealth information and resources. Financial
+        balances, transactions and investment features will only
+        appear when properly implemented and connected to verified
+        account data.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Financial Education</h3>
+
+        <p>
+          Explore educational information about financial concepts,
+          planning and digital finance.
+        </p>
+
+        <a href="services.html">
+          Explore →
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Financial Resources</h3>
+
+        <p>
+          Access useful resources designed to help you better
+          understand today's financial environment.
+        </p>
+
+        <a href="services.html">
+          View Resources →
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Account Security</h3>
+
+        <p>
+          Your account uses Supabase authentication to manage
+          your sign-in session securely.
+        </p>
+
+        <a href="privacy.html">
+          Privacy →
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+
+    © 2026 Bit-Wealth. All rights reserved.
+
+  </footer>
+
+
+  <script>
+
+    // ==========================================
+    // BIT-WEALTH SUPABASE CONFIGURATION
+    // ==========================================
+
+    https://weovrftlcdcgpolmwlgl.supabase.co/rest/v1/
+
+    sb_publishable_Z7VJQvGcckiFNuWB1662qQ_CYiGJkwG
+
+    const { createClient } = supabase;
+
+    const supabaseClient = createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+    // ==========================================
+    // CHECK LOGIN SESSION
+    // ==========================================
+
+    async function checkUser() {
+
+      const {
+        data: { session }
+      } = await supabaseClient.auth.getSession();
+
+      if (!session) {
+
+        window.location.href = "login.html";
+
+        return;
+      }
+
+      document.getElementById("userEmail").textContent =
+        session.user.email;
+
+    }
+
+
+    // ==========================================
+    // LOG OUT
+    // ==========================================
+
+    document
+      .getElementById("logoutButton")
+      .addEventListener("click", async function() {
+
+        const { error } =
+          await supabaseClient.auth.signOut();
+
+        if (error) {
+
+          alert("Unable to log out. Please try again.");
+
+          return;
+        }
+
+        window.location.href = "login.html";
+
+      });
+
+
+    checkUser();
+
+  </script>
+
+</body>
+  </html>
