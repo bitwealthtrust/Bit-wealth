@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bit-Wealth</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07111f;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background: #0b1726;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #203247;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #27d58a;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 7%;
+    background: linear-gradient(135deg, #07111f, #103047);
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #27d58a;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #b9c7d5;
+    font-size: 18px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 25px;
+    margin: 5px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.primary {
+    background: #27d58a;
+    color: #061019;
+}
+
+.secondary {
+    border: 1px solid #27d58a;
+    color: #27d58a;
+}
+
+section {
+    padding: 70px 7%;
+}
+
+.title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.about {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: #b9c7d5;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #0d1d2e;
+    padding: 28px;
+    border-radius: 12px;
+    border: 1px solid #203247;
+}
+
+.card h3 {
+    color: #27d58a;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #b9c7d5;
+}
+
+.contact {
+    text-align: center;
+    background: #0b1726;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #8796a6;
+    border-top: 1px solid #203247;
+}
+
+@media (max-width: 600px) {
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Bit-<span>Wealth</span></div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Build Your <span>Financial Future</span></h1>
+
+    <p>
+        Welcome to Bit-Wealth, a modern digital finance platform
+        focused on providing clear information and accessible
+        financial technology services.
+    </p>
+
+    <div class="buttons">
+        <a href="#services" class="button primary">
+            Explore Services
+        </a>
+
+        <a href="#contact" class="button secondary">
+            Contact Us
+        </a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="title">About Bit-Wealth</h2>
+
+    <p class="about">
+        Bit-Wealth is a developing digital finance platform.
+        Our goal is to create a simple, modern and transparent
+        online experience for people interested in digital finance.
+    </p>
+</section>
+
+<section id="services">
+
+    <h2 class="title">Our Services</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Digital Finance</h3>
+
+            <p>
+                Explore information and tools related to
+                modern digital financial services.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Financial Education</h3>
+
+            <p>
+                Learn about financial markets, digital assets,
+                opportunities and associated risks.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Portfolio Tools</h3>
+
+            <p>
+                Organize and review information about your
+                digital financial activities.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <h2 class="title">Contact Bit-Wealth</h2>
+
+    <p>
+        We are building a modern platform.
+        More contact options will be added soon.
+    </p>
+
+</section>
+
+<footer>
+    © 2026 Bit-Wealth. All rights reserved.
+</footer>
+
+</body>
+</html>
