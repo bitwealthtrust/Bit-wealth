@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin Panel | Bit-Wealth</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    .layout {
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: #081d38;
+      color: white;
+      padding: 25px 15px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      padding: 0 10px 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #c5d2e2;
+      text-decoration: none;
+      padding: 13px 12px;
+      border-radius: 7px;
+      margin-bottom: 5px;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: #123c72;
+      color: white;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+      overflow-x: hidden;
+    }
+
+    .topbar {
+      background: white;
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .topbar h1 {
+      color: #123c72;
+      margin-bottom: 5px;
+    }
+
+    .topbar p {
+      color: #68778b;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .stat {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .stat h3 {
+      color: #68778b;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .stat .number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #123c72;
+    }
+
+    .section {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .section h2 {
+      color: #123c72;
+      margin-bottom: 18px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th,
+    td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #edf1f5;
+    }
+
+    th {
+      color: #68778b;
+      font-size: 13px;
+      background: #f8fafc;
+    }
+
+    td {
+      font-size: 14px;
+    }
+
+    .empty {
+      text-align: center;
+      color: #68778b;
+      padding: 25px;
+    }
+
+    .plan-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .plan {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .plan h3 {
+      color: #123c72;
+      margin-bottom: 12px;
+    }
+
+    .plan p {
+      color: #68778b;
+      margin-bottom: 6px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 6px;
+      background: #123c72;
+      color: white;
+      text-decoration: none;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .notice {
+      background: #fff8e6;
+      border: 1px solid #f0d58a;
+      color: #725b17;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: #68778b;
+      font-size: 13px;
+      padding: 20px;
+    }
+
+    @media (max-width: 900px) {
+
+      .sidebar {
+        width: 190px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .plan-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .layout {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .logo {
+        padding: 5px 10px 15px;
+      }
+
+      .sidebar a {
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .main {
+        padding: 15px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+
+    <div class="logo">
+      Bit-Wealth
+    </div>
+
+    <a href="admin.html" class="active">
+      Dashboard
+    </a>
+
+    <a href="#users">
+      Users
+    </a>
+
+    <a href="#plans">
+      Investment Plans
+    </a>
+
+    <a href="#activity">
+      Activity
+    </a>
+
+    <a href="index.html">
+      View Website
+    </a>
+
+    <a href="login.html">
+      Log Out
+    </a>
+
+  </aside>
+
+
+  <main class="main">
+
+    <div class="topbar">
+
+      <h1>Admin Dashboard</h1>
+
+      <p>
+        Bit-Wealth platform management center.
+      </p>
+
+    </div>
+
+
+    <div class="notice">
+
+      <strong>Admin security:</strong>
+      This page is currently a frontend interface. Real administrative
+      access should only be enabled after secure authentication and
+      server-side authorization are implemented.
+
+    </div>
+
+
+    <section class="stats">
+
+      <div class="stat">
+        <h3>Total Users</h3>
+        <div class="number">—</div>
+      </div>
+
+      <div class="stat">
+        <h3>Active Plans</h3>
+        <div class="number">2</div>
+      </div>
+
+      <div class="stat">
+        <h3>Pending Actions</h3>
+        <div class="number">—</div>
+      </div>
+
+      <div class="stat">
+        <h3>Platform Status</h3>
+        <div class="number">Healthy</div>
+      </div>
+
+    </section>
+
+
+    <section class="section" id="users">
+
+      <h2>Users</h2>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td colspan="4" class="empty">
+                No user data connected yet.
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <section class="section" id="plans">
+
+      <h2>Investment Plans</h2>
+
+      <div class="plan-list">
+
+        <div class="plan">
+
+          <h3>⭐ Starter Plan</h3>
+
+          <p>
+            Minimum: $100
+          </p>
+
+          <p>
+            Maximum: $29,999
+          </p>
+
+          <p>
+            Duration: 7 days
+          </p>
+
+          <a href="plans.html" class="button">
+            View Plan
+          </a>
+
+        </div>
+
+
+        <div class="plan">
+
+          <h3>⭐ Regional Representative</h3>
+
+          <p>
+            Minimum: $30,000
+          </p>
+
+          <p>
+            Maximum: $99,999
+          </p>
+
+          <p>
+            Duration: 30 days
+          </p>
+
+          <a href="plans.html" class="button">
+            View Plan
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section" id="activity">
+
+      <h2>Recent Activity</h2>
+
+      <p class="empty">
+        No activity data connected yet.
+      </p>
+
+    </section>
+
+
+    <footer>
+
+      © 2026 Bit-Wealth. Admin interface.
+
+    </footer>
+
+  </main>
+
+</div>
+
+</body>
+        </html>
