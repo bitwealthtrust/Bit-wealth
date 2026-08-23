@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Investment Plans | Bit-Wealth</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f8fc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5eaf0;
+    }
+
+    .logo {
+      color: #123c72;
+      font-size: 25px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    nav a {
+      margin-left: 18px;
+      text-decoration: none;
+      color: #26364d;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 40px;
+      background: linear-gradient(135deg, #0d2f5f, #1769aa);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #e4eff9;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .plans {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .plan {
+      background: white;
+      border-radius: 15px;
+      padding: 35px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border: 1px solid #e3e9f0;
+    }
+
+    .plan.featured {
+      border: 2px solid #1769aa;
+    }
+
+    .plan h2 {
+      color: #123c72;
+      margin-bottom: 25px;
+    }
+
+    .plan ul {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .plan li {
+      padding: 12px 0;
+      border-bottom: 1px solid #edf1f5;
+    }
+
+    .plan strong {
+      color: #123c72;
+    }
+
+    .button {
+      display: block;
+      text-align: center;
+      background: #123c72;
+      color: white;
+      padding: 14px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .notice {
+      max-width: 900px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+      text-align: center;
+      color: #68778b;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #081d38;
+      color: #b9c7d8;
+      text-align: center;
+      padding: 30px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      nav a {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .plans {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">Bit-Wealth</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="plans.html">Plans</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Investment Plans</h1>
+  <p>
+    Explore the investment plan options available through Bit-Wealth.
+  </p>
+</section>
+
+<section class="plans">
+
+  <div class="plan">
+
+    <h2>⭐ STARTER PLAN</h2>
+
+    <ul>
+      <li><strong>Min invest:</strong> $100</li>
+      <li><strong>Max invest:</strong> $29,999</li>
+      <li><strong>Percentage profit:</strong> 2% Daily</li>
+      <li><strong>Duration:</strong> 7 days</li>
+      <li><strong>Withdrawal:</strong> INSTANT</li>
+    </ul>
+
+    <a href="login.html" class="button">
+      GET STARTED
+    </a>
+
+  </div>
+
+
+  <div class="plan featured">
+
+    <h2>⭐ REGIONAL REPRESENTATIVE</h2>
+
+    <ul>
+      <li><strong>Min invest:</strong> $30,000</li>
+      <li><strong>Max invest:</strong> $99,999</li>
+      <li><strong>Percentage profit:</strong> 5%</li>
+      <li><strong>Duration:</strong> 30 days</li>
+      <li><strong>Withdrawal:</strong> INSTANT</li>
+    </ul>
+
+    <a href="login.html" class="button">
+      GET STARTED
+    </a>
+
+  </div>
+
+</section>
+
+<div class="notice">
+  Investment involves risk. Returns are not guaranteed unless expressly
+  provided under applicable, verified product terms.
+</div>
+
+<footer>
+  <p>© 2026 Bit-Wealth. All rights reserved.</p>
+</footer>
+
+</body>
+      </html>
