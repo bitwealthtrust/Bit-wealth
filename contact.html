@@ -6,8 +6,6 @@
 
   <title>Contact Us | Bit-Wealth</title>
 
-  <meta name="description" content="Contact Bit-Wealth for questions, feedback and general enquiries.">
-
   <style>
     * {
       box-sizing: border-box;
@@ -17,31 +15,31 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f9fc;
+      background: #f5f8fc;
       color: #172033;
       line-height: 1.6;
     }
 
     header {
-      background: #ffffff;
+      background: white;
       padding: 20px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e8edf3;
+      border-bottom: 1px solid #e5eaf0;
     }
 
     .logo {
+      color: #123c72;
       font-size: 25px;
       font-weight: 800;
-      color: #123c72;
       text-decoration: none;
     }
 
     nav a {
       margin-left: 18px;
-      text-decoration: none;
       color: #26364d;
+      text-decoration: none;
       font-size: 14px;
     }
 
@@ -49,136 +47,71 @@
       background: linear-gradient(135deg, #0d2f5f, #1769aa);
       color: white;
       text-align: center;
-      padding: 70px 7%;
+      padding: 65px 20px;
     }
 
     .hero h1 {
-      font-size: 44px;
-      margin-bottom: 15px;
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
     .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: #e5eef8;
-      font-size: 17px;
-    }
-
-    section {
-      padding: 60px 7%;
+      color: #e3eef9;
     }
 
     .contact-container {
       max-width: 950px;
-      margin: auto;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
     }
 
-    .contact-info,
-    .contact-form {
+    .contact-card {
       background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
     }
 
-    .contact-info h2,
-    .contact-form h2 {
+    .contact-card h2 {
       color: #123c72;
       margin-bottom: 15px;
     }
 
-    .contact-info p {
-      color: #657386;
-      margin-bottom: 20px;
-    }
-
-    .info-item {
+    .contact-card p {
+      color: #68778b;
       margin-bottom: 18px;
     }
 
-    .info-item strong {
+    .contact-link {
       display: block;
-      color: #123c72;
-      margin-bottom: 4px;
-    }
-
-    .info-item span {
-      color: #657386;
-      font-size: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      color: #26364d;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 13px;
-      margin-bottom: 18px;
-      border: 1px solid #d7dee8;
-      border-radius: 7px;
-      font-family: inherit;
-      font-size: 15px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: #1769aa;
-    }
-
-    button {
-      width: 100%;
-      border: none;
-      background: #123c72;
-      color: white;
       padding: 14px;
-      border-radius: 7px;
-      font-size: 16px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      color: #123c72;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
+      word-break: break-word;
     }
 
-    button:hover {
-      background: #1769aa;
-    }
-
-    .notice {
-      text-align: center;
-      background: white;
-    }
-
-    .notice p {
-      max-width: 750px;
-      margin: auto;
-      color: #657386;
+    .whatsapp {
+      background: #eaf7ef;
+      color: #176b3a;
     }
 
     .back {
-      text-align: center;
-      background: #0d2f5f;
-    }
-
-    .back a {
       display: inline-block;
-      background: white;
-      color: #123c72;
-      padding: 13px 25px;
-      border-radius: 7px;
+      margin-top: 30px;
+      padding: 13px 22px;
+      background: #123c72;
+      color: white;
       text-decoration: none;
+      border-radius: 7px;
       font-weight: bold;
     }
 
@@ -186,8 +119,8 @@
       background: #081d38;
       color: #b9c7d8;
       text-align: center;
-      padding: 30px 7%;
-      font-size: 14px;
+      padding: 30px;
+      margin-top: 50px;
     }
 
     @media (max-width: 700px) {
@@ -196,24 +129,16 @@
       }
 
       nav a {
-        margin-left: 7px;
+        margin-left: 8px;
         font-size: 12px;
       }
 
-      .hero {
-        padding: 55px 5%;
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
       .hero h1 {
-        font-size: 36px;
-      }
-
-      section {
-        padding: 45px 5%;
-      }
-
-      .contact-container {
-        grid-template-columns: 1fr;
+        font-size: 32px;
       }
     }
   </style>
@@ -221,115 +146,93 @@
 
 <body>
 
-  <header>
-    <a href="index.html" class="logo">Bit-Wealth</a>
+<header>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <a href="index.html" class="logo">
+    Bit-Wealth
+  </a>
 
-  <section class="hero">
-    <h1>Contact Us</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="plans.html">Plans</a>
+    <a href="login.html">Login</a>
+  </nav>
 
-    <p>
-      Have a question, suggestion or general enquiry?
-      We'd be happy to hear from you.
-    </p>
-  </section>
+</header>
 
-  <section>
 
-    <div class="contact-container">
+<section class="hero">
 
-      <div class="contact-info">
+  <h1>Contact Bit-Wealth</h1>
 
-        <h2>Get in Touch</h2>
+  <p>
+    We're here to help. Get in touch with our support team.
+  </p>
 
-        <p>
-          Use the contact form to send us your message.
-          We aim to make communication with Bit-Wealth simple and accessible.
-        </p>
+</section>
 
-        <div class="info-item">
-          <strong>Email</strong>
-          <span>contact@bit-wealth.com</span>
-        </div>
 
-        <div class="info-item">
-          <strong>Availability</strong>
-          <span>General enquiries and support</span>
-        </div>
+<main class="contact-container">
 
-        <div class="info-item">
-          <strong>Website</strong>
-          <span>Bit-Wealth Digital Finance Platform</span>
-        </div>
+  <div class="contact-grid">
 
-      </div>
+    <div class="contact-card">
 
-      <div class="contact-form">
+      <h2>📧 Email Support</h2>
 
-        <h2>Send a Message</h2>
+      <p>
+        Send us an email and our team will get back to you.
+      </p>
 
-        <form action="mailto:contact@bit-wealth.com" method="post" enctype="text/plain">
-
-          <label for="name">Your Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your name"
-            required
-          >
-
-          <label for="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-          >
-
-          <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Write your message here..."
-            required
-          ></textarea>
-
-          <button type="submit">Send Message</button>
-
-        </form>
-
-      </div>
+      <a
+        href="mailto:bitwealth708@gmail.com"
+        class="contact-link"
+      >
+        bitwealth708@gmail.com
+      </a>
 
     </div>
 
-  </section>
 
-  <section class="notice">
+    <div class="contact-card">
 
-    <p>
-      Please do not send passwords, payment information or other sensitive
-      personal information through this form.
-    </p>
+      <h2>💬 WhatsApp Support</h2>
 
-  </section>
+      <p>
+        Contact our support team through WhatsApp.
+      </p>
 
-  <section class="back">
-    <a href="index.html">← Back to Bit-Wealth Home</a>
-  </section>
+      <a
+        href="https://wa.me/385951321512"
+        class="contact-link whatsapp"
+        target="_blank"
+        rel="noopener"
+      >
+        +385 95 132 1512
+      </a>
 
-  <footer>
-    <p>© 2026 Bit-Wealth. All rights reserved.</p>
-    <p>Financial information provided for educational purposes only.</p>
-  </footer>
+    </div>
+
+  </div>
+
+
+  <div style="text-align:center;">
+    <a href="index.html" class="back">
+      Back to Homepage
+    </a>
+  </div>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © 2026 Bit-Wealth. All rights reserved.
+  </p>
+
+</footer>
 
 </body>
-            </html>
+</html>
