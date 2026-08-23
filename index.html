@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bit-Wealth | Build Your Financial Future</title>
-
-  <meta name="description" content="Bit-Wealth is a modern digital finance information platform providing accessible financial education, technology insights and financial resources.">
+  <title>Investment Plans | Bit-Wealth</title>
 
   <style>
     * {
@@ -15,366 +13,137 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f6f9fc;
+      background: #f5f8fc;
       color: #172033;
       line-height: 1.6;
     }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      padding: 18px 7%;
+      background: #ffffff;
+      padding: 20px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e6ebf2;
+      border-bottom: 1px solid #e5eaf0;
     }
 
     .logo {
       color: #123c72;
-      text-decoration: none;
       font-size: 25px;
       font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      text-decoration: none;
     }
 
     nav a {
-      color: #26364d;
+      margin-left: 18px;
       text-decoration: none;
+      color: #26364d;
       font-size: 14px;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      color: #1769aa;
     }
 
     .hero {
-      min-height: 620px;
-      display: flex;
-      align-items: center;
-      padding: 90px 7%;
+      text-align: center;
+      padding: 65px 20px 40px;
+      background: linear-gradient(135deg, #0d2f5f, #1769aa);
       color: white;
-      background:
-        radial-gradient(circle at 85% 20%, rgba(63,160,230,0.35), transparent 30%),
-        linear-gradient(135deg, #071f43, #0d4d87 60%, #1769aa);
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 30px;
-      background: rgba(255,255,255,0.08);
-      color: #dceeff;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 22px;
     }
 
     .hero h1 {
-      font-size: 58px;
-      line-height: 1.05;
-      letter-spacing: -1.5px;
-      margin-bottom: 22px;
+      font-size: 40px;
+      margin-bottom: 12px;
     }
 
     .hero p {
-      max-width: 690px;
-      font-size: 19px;
-      color: #dceafa;
-      margin-bottom: 32px;
+      color: #e4eff9;
+      max-width: 650px;
+      margin: auto;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .plans {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .plan {
+      background: white;
+      border-radius: 15px;
+      padding: 35px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border: 1px solid #e3e9f0;
+    }
+
+    .plan.featured {
+      border: 2px solid #1769aa;
+    }
+
+    .plan h2 {
+      color: #123c72;
+      margin-bottom: 25px;
+    }
+
+    .plan ul {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .plan li {
+      padding: 12px 0;
+      border-bottom: 1px solid #edf1f5;
+    }
+
+    .plan strong {
+      color: #123c72;
     }
 
     .button {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 8px;
+      display: block;
+      text-align: center;
+      background: #123c72;
+      color: white;
+      padding: 14px;
+      border-radius: 7px;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.2s;
     }
 
-    .button-primary {
-      background: white;
-      color: #123c72;
-    }
-
-    .button-secondary {
-      border: 1px solid rgba(255,255,255,0.4);
-      color: white;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    section {
-      padding: 80px 7%;
-    }
-
-    .section-heading {
-      max-width: 720px;
-      margin: 0 auto 45px;
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      font-size: 36px;
-      color: #123c72;
-      margin-bottom: 12px;
-    }
-
-    .section-heading p {
-      color: #657386;
-      font-size: 16px;
-    }
-
-    .intro {
-      background: white;
-    }
-
-    .intro-content {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .intro-content p {
-      color: #657386;
-      font-size: 17px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      padding: 32px;
-      border-radius: 14px;
-      border: 1px solid #e8edf3;
-      box-shadow: 0 8px 25px rgba(15,45,80,0.06);
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-icon {
-      width: 46px;
-      height: 46px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      background: #e9f3fc;
-      color: #1769aa;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      color: #123c72;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #657386;
-      font-size: 15px;
-    }
-
-    .why {
-      background: #f0f5fa;
-    }
-
-    .steps {
+    .notice {
       max-width: 900px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .step {
-      background: white;
-      padding: 28px;
-      border-radius: 12px;
-      border: 1px solid #e1e8f0;
-    }
-
-    .step-number {
-      color: #1769aa;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+      text-align: center;
+      color: #68778b;
       font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .step h3 {
-      color: #123c72;
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      color: #657386;
-      font-size: 15px;
-    }
-
-    .trust {
-      background: white;
-      text-align: center;
-    }
-
-    .trust-box {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px;
-      border-radius: 16px;
-      background: #f4f8fc;
-      border: 1px solid #e0e8f1;
-    }
-
-    .trust-box h2 {
-      color: #123c72;
-      margin-bottom: 12px;
-    }
-
-    .trust-box p {
-      color: #657386;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #0d2f5f, #1769aa);
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      color: #dceafa;
-      max-width: 650px;
-      margin: 0 auto 25px;
     }
 
     footer {
-      background: #061a33;
+      background: #081d38;
       color: #b9c7d8;
       text-align: center;
-      padding: 35px 7%;
-      font-size: 14px;
+      padding: 30px;
     }
 
-    footer a {
-      color: #b9c7d8;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: white;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    @media (max-width: 800px) {
+    @media (max-width: 700px) {
       header {
-        padding: 16px 5%;
-      }
-
-      nav {
-        gap: 9px;
+        padding: 18px 5%;
       }
 
       nav a {
-        font-size: 11px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 75px 5%;
+        margin-left: 8px;
+        font-size: 12px;
       }
 
       .hero h1 {
-        font-size: 43px;
+        font-size: 32px;
       }
 
-      .hero p {
-        font-size: 17px;
-      }
-
-      section {
-        padding: 60px 5%;
-      }
-
-      .cards,
-      .steps {
+      .plans {
         grid-template-columns: 1fr;
-      }
-
-      .section-heading h2 {
-        font-size: 30px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 21px;
-      }
-
-      nav {
-        gap: 6px;
-      }
-
-      nav a {
-        font-size: 10px;
-      }
-
-      .hero h1 {
-        font-size: 37px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .button {
-        text-align: center;
       }
     }
   </style>
@@ -382,227 +151,73 @@
 
 <body>
 
-  <header>
-    <a href="index.html" class="logo">Bit-Wealth</a>
+<header>
+  <a href="index.html" class="logo">Bit-Wealth</a>
 
-    <nav>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact</a>
-  <a href="login.html">Log In</a>
-  <a href="signup.html">Create Account</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="plans.html">Plans</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
+<section class="hero">
+  <h1>Investment Plans</h1>
+  <p>
+    Explore the investment plan options available through Bit-Wealth.
+  </p>
+</section>
 
-      <span class="badge">MODERN DIGITAL FINANCE</span>
+<section class="plans">
 
-      <h1>Build Your Financial Future</h1>
+  <div class="plan">
 
-      <p>
-        Bit-Wealth provides clear financial information, educational
-        resources and insights into the technologies shaping modern finance.
-      </p>
+    <h2>⭐ STARTER PLAN</h2>
 
-      <div class="hero-buttons">
-        <a href="services.html" class="button button-primary">
-          Explore Services
-        </a>
+    <ul>
+      <li><strong>Min invest:</strong> $100</li>
+      <li><strong>Max invest:</strong> $29,999</li>
+      <li><strong>Percentage profit:</strong> 2% Daily</li>
+      <li><strong>Duration:</strong> 7 days</li>
+      <li><strong>Withdrawal:</strong> INSTANT</li>
+    </ul>
 
-        <a href="about.html" class="button button-secondary">
-          Learn About Us
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="intro">
-    <div class="intro-content">
-
-      <div class="section-heading">
-        <h2>Finance Made Clearer</h2>
-        <p>Information designed for today's digital financial world.</p>
-      </div>
-
-      <p>
-        Bit-Wealth is an informational platform focused on making
-        financial concepts easier to understand. We explore financial
-        education, digital finance, investment principles and emerging
-        financial technologies.
-      </p>
-
-    </div>
-  </section>
-
-  <section id="services">
-
-    <div class="section-heading">
-      <h2>What We Offer</h2>
-      <p>Explore the areas covered across the Bit-Wealth platform.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="card-icon">01</div>
-        <h3>Financial Education</h3>
-        <p>
-          Understand important financial concepts and principles
-          through clear, accessible educational information.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">02</div>
-        <h3>Digital Finance</h3>
-        <p>
-          Explore modern financial technology and the digital
-          systems changing the way people interact with finance.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">03</div>
-        <h3>Financial Resources</h3>
-        <p>
-          Discover useful resources designed to help you build
-          a stronger understanding of the financial environment.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="why">
-
-    <div class="section-heading">
-      <h2>Why Bit-Wealth?</h2>
-      <p>A simple and responsible approach to financial information.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="card-icon">✓</div>
-        <h3>Clear Information</h3>
-        <p>
-          Financial topics presented in a straightforward and
-          understandable format.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">✓</div>
-        <h3>Accessible Design</h3>
-        <p>
-          A mobile-friendly experience designed to work across
-          phones, tablets and computers.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">✓</div>
-        <h3>Responsible Approach</h3>
-        <p>
-          We emphasize education and informed decision-making
-          rather than promises of financial returns.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section>
-
-    <div class="section-heading">
-      <h2>How Bit-Wealth Works</h2>
-      <p>Three simple steps to explore the platform.</p>
-    </div>
-
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-number">STEP 01</div>
-        <h3>Explore</h3>
-        <p>
-          Browse our financial information and available resources.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">STEP 02</div>
-        <h3>Learn</h3>
-        <p>
-          Develop your understanding of modern finance and technology.
-        </p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">STEP 03</div>
-        <h3>Stay Informed</h3>
-        <p>
-          Continue learning as financial technology and markets evolve.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="trust">
-
-    <div class="trust-box">
-      <h2>Information You Can Explore With Confidence</h2>
-
-      <p>
-        Bit-Wealth is currently focused on financial education and
-        information. We do not promise guaranteed profits or investment
-        returns. Financial decisions can involve risk, so always consider
-        your circumstances and seek qualified professional advice where
-        appropriate.
-      </p>
-    </div>
-
-  </section>
-
-  <section class="cta">
-
-    <h2>Start Exploring Bit-Wealth</h2>
-
-    <p>
-      Discover financial education and digital finance information
-      designed for the modern world.
-    </p>
-
-    <a href="services.html" class="button button-primary">
-      Explore Services
+    <a href="login.html" class="button">
+      GET STARTED
     </a>
 
-  </section>
+  </div>
 
-  <footer>
 
-    <p>© 2026 Bit-Wealth. All rights reserved.</p>
+  <div class="plan featured">
 
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <span> | </span>
-      <a href="terms.html">Terms &amp; Conditions</a>
-      <span> | </span>
-      <a href="contact.html">Contact</a>
-    </div>
+    <h2>⭐ REGIONAL REPRESENTATIVE</h2>
 
-    <p style="margin-top: 12px;">
-      Financial information provided for educational purposes only.
-    </p>
+    <ul>
+      <li><strong>Min invest:</strong> $30,000</li>
+      <li><strong>Max invest:</strong> $99,999</li>
+      <li><strong>Percentage profit:</strong> 5%</li>
+      <li><strong>Duration:</strong> 30 days</li>
+      <li><strong>Withdrawal:</strong> INSTANT</li>
+    </ul>
 
-  </footer>
+    <a href="login.html" class="button">
+      GET STARTED
+    </a>
+
+  </div>
+
+</section>
+
+<div class="notice">
+  Investment involves risk. Returns are not guaranteed unless expressly
+  provided under applicable, verified product terms.
+</div>
+
+<footer>
+  <p>© 2026 Bit-Wealth. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
